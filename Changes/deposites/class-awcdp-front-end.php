@@ -1588,6 +1588,7 @@ class AWCDP_Front_End
           $awcdp_ts = get_option('awcdp_text_settings');
           $to_pay_text = ( isset($awcdp_ts['to_pay_text']) && ( $awcdp_ts['to_pay_text'] != '' ) ) ? $awcdp_ts['to_pay_text'] : esc_html__('Due Today', 'deposits-partial-payments-for-woocommerce' );
           $future_pay_text = ( isset($awcdp_ts['future_payment_text']) && ( $awcdp_ts['future_payment_text'] != '' ) ) ? $awcdp_ts['future_payment_text'] : esc_html__('Future payments', 'deposits-partial-payments-for-woocommerce' );
+          $third_pay_text = ( isset($awcdp_ts['third_pay_text']) && ( $awcdp_ts['third_pay_text'] != '' ) ) ? $awcdp_ts['third_pay_text'] : esc_html__('Deposite for rental', 'deposits-partial-payments-for-woocommerce' );
           $deposit_amount_text = ( isset($awcdp_ts['deposit_amount_text']) && ( $awcdp_ts['deposit_amount_text'] != '' ) ) ? $awcdp_ts['deposit_amount_text'] : esc_html__('Deposit Amount', 'deposits-partial-payments-for-woocommerce' );
 
 
@@ -1616,8 +1617,8 @@ class AWCDP_Front_End
                   'value' => wc_price($second_payment, array('currency' => $order->get_currency()))
                 );
                 $total_rows['third_payment'] = array(
-                    'label' => esc_html($future_pay_text),
-                    'value' => wc_price($second_payment, array('currency' => $order->get_currency()))
+                    'label' => esc_html($third_pay_text),
+                    'value' => wc_price($third_payment, array('currency' => $order->get_currency()))
                   );
             }
 
